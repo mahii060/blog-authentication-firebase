@@ -55,6 +55,7 @@ const Register = () => {
                             </label>
                             <div className="flex items-center">
                                 <input name="password" type={showPassword ? "text" : "password"} placeholder="Password" className="input input-bordered" required />
+                                {/* Handling show password */}
                                 {
                                     showPassword ?
                                         <FaEyeSlash onClick={handleShowPassword} className="-ml-5 text-lg text-gray-600" /> :

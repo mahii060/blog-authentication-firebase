@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false)
+
+    // Handling show password
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col">
@@ -19,7 +27,15 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="Password" className="input input-bordered" required />
+                            <div className="flex items-center">
+                                <input name="password" type={showPassword ? "text" : "password"} placeholder="Password" className="input input-bordered" required />
+                                {/* Handling show password */}
+                                {
+                                    showPassword ?
+                                        <FaEyeSlash onClick={handleShowPassword} className="-ml-5 text-lg text-gray-600" /> :
+                                        <FaEye onClick={handleShowPassword} className="-ml-5 text-lg text-gray-600" />
+                                }
+                            </div>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
